@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,7 +7,10 @@
 </head>
 <body>
     <form action="/book" method="POST" target="_blank">
-        <input type="text" name="name"/>
+        <br/>
+        Title: <input type="text" name="title"/>
+        <br/>
+        ISBN: <input type="text" name="ISBN"/>
         <input type="submit" value="Post"/>
     </form>
 </body>
