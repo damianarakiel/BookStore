@@ -1,8 +1,6 @@
-package com.sda.hibernate.entity;
+package com.sda.bookstore.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;

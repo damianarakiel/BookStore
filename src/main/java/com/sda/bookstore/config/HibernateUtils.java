@@ -1,4 +1,4 @@
-package com.sda.hibernate.config;
+package com.sda.bookstore.config;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

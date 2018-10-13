@@ -1,7 +1,7 @@
-package com.sda.hibernate.service;
+package com.sda.bookstore.service;
 
-import com.sda.hibernate.dao.CategoryDao;
-import com.sda.hibernate.entity.Category;
+import com.sda.bookstore.dao.CategoryDao;
+import com.sda.bookstore.entity.Category;
 
 import java.util.List;
 

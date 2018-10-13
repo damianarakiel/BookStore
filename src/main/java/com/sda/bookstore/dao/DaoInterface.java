@@ -1,4 +1,4 @@
-package com.sda.hibernate.dao;
+package com.sda.bookstore.dao;
 
 import java.util.List;
 

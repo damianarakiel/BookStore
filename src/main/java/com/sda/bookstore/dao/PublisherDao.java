@@ -1,6 +1,6 @@
-package com.sda.hibernate.dao;
+package com.sda.bookstore.dao;
 
-import com.sda.hibernate.entity.Publisher;
+import com.sda.bookstore.entity.Publisher;
 
 import java.util.List;
 

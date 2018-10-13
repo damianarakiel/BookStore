@@ -14,12 +14,12 @@
         <property name="hibernate.connection.serverTimezone">UCT</property>
         <property name="generate_statistics">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <!--<property name="hibernate.transaction.auto_close_session">true</property>-->
+        <!--<property name="bookstore.transaction.auto_close_session">true</property>-->
 
-        <mapping class="com.sda.hibernate.entity.Book"></mapping>
-        <mapping class="com.sda.hibernate.entity.Category"></mapping>
-        <mapping class="com.sda.hibernate.entity.Publisher"></mapping>
-        <mapping class="com.sda.hibernate.entity.Author"></mapping>
+        <mapping class="com.sda.bookstore.entity.Book"></mapping>
+        <mapping class="com.sda.bookstore.entity.Category"></mapping>
+        <mapping class="com.sda.bookstore.entity.Publisher"></mapping>
+        <mapping class="com.sda.bookstore.entity.Author"></mapping>
 
     </session-factory>
 </hibernate-configuration>

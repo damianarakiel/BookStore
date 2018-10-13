@@ -1,4 +1,4 @@
-package com.sda.hibernate.entity;
+package com.sda.bookstore.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

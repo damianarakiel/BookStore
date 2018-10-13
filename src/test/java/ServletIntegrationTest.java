@@ -1,4 +1,4 @@
-import com.sda.hibernate.web.EmbeddedTomcatFactory;
+import com.sda.bookstore.web.EmbeddedTomcatFactory;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -32,7 +32,6 @@ public class ServletIntegrationTest {
         httpClient = HttpClientBuilder.create().build();
     }
 
-
     private int randomPort() {
         return new Random().nextInt(10000) + 8080;
     }
@@ -46,7 +45,7 @@ public class ServletIntegrationTest {
     @Test
     public void test0() throws Exception {
         // given
-        String uri = uri("/Book");
+        String uri = uri("/book");
 
         // when
         HttpResponse response = httpClient.execute(new HttpPost(uri));

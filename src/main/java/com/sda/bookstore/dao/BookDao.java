@@ -1,7 +1,7 @@
-package com.sda.hibernate.dao;
+package com.sda.bookstore.dao;
 
-import com.sda.hibernate.config.HibernateUtils;
-import com.sda.hibernate.entity.Author;
+import com.sda.bookstore.config.HibernateUtils;
+import com.sda.bookstore.entity.Book;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -9,12 +9,12 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class AuthorDao implements DaoInterface<Author> {
+public class BookDao implements DaoInterface<Book> {
 
     private Session currentSession;
     private Transaction currentTransaction;
 
-    public AuthorDao() {
+    public BookDao() {
     }
 
     public Session getCurrentSession() {
@@ -33,8 +33,7 @@ public class AuthorDao implements DaoInterface<Author> {
         currentTransaction.commit();
     }
 
-
-    public Author save(Author entity) {
+    public Book save(Book entity) {
         try {
             getCurrentSession().save(entity);
         } catch (HibernateException e) {
@@ -43,30 +42,30 @@ public class AuthorDao implements DaoInterface<Author> {
         return entity;
     }
 
-    public void update(Author entity) {
+    public void update(Book entity) {
         getCurrentSession().update(entity);
     }
 
-    public Author findById(int id) {
+    public Book findById(int id) {
         //        TODO zabezpieczenie przed nullpointer
-        Author author = getCurrentSession().get(Author.class, id);
-        return author;
+        Book book = getCurrentSession().get(Book.class, id);
+        return book;
     }
 
-    public void delete(Author entity) {
+    public void delete(Book entity) {
         //        TODO zabezpieczenie przed usuwaniem rekordu który nie istnieje
         getCurrentSession().delete(entity);
 
     }
 
     public void deleteAll() {
-        String sql = "delete from Author";
+        String sql = "delete from Book";
         Query query = getCurrentSession().createQuery(sql);
         query.executeUpdate();
     }
 
-    public List<Author> findAll() {
-        List<Author> authorList = getCurrentSession().createQuery("FROM " + Author.class.getName()).list();
-        return authorList;
+    public List<Book> findAll() {
+        List<Book> bookList = getCurrentSession().createQuery("FROM " + Book.class.getName()).list();
+        return bookList;
     }
 }

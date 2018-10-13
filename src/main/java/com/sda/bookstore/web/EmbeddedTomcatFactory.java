@@ -1,4 +1,4 @@
-package com.sda.hibernate.web;
+package com.sda.bookstore.web;
 
 import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.connector.Connector;

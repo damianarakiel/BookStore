@@ -1,12 +1,12 @@
-package com.sda.hibernate;
+package com.sda.bookstore;
 
-import com.sda.hibernate.config.HibernateUtils;
-import com.sda.hibernate.entity.Author;
-import com.sda.hibernate.entity.Book;
-import com.sda.hibernate.entity.Category;
-import com.sda.hibernate.service.AuthorService;
-import com.sda.hibernate.service.BookService;
-import com.sda.hibernate.service.CategoryService;
+import com.sda.bookstore.config.HibernateUtils;
+import com.sda.bookstore.entity.Author;
+import com.sda.bookstore.entity.Book;
+import com.sda.bookstore.entity.Category;
+import com.sda.bookstore.service.AuthorService;
+import com.sda.bookstore.service.BookService;
+import com.sda.bookstore.service.CategoryService;
 
 import java.util.HashSet;
 import java.util.Set;

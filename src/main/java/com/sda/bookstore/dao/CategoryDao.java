@@ -1,7 +1,7 @@
-package com.sda.hibernate.dao;
+package com.sda.bookstore.dao;
 
-import com.sda.hibernate.config.HibernateUtils;
-import com.sda.hibernate.entity.Category;
+import com.sda.bookstore.config.HibernateUtils;
+import com.sda.bookstore.entity.Category;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
