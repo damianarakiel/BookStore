@@ -8,9 +8,9 @@
 <body>
     <form action="/book" method="POST" target="_blank">
         <br/>
-        Title: <input type="text" name="title"/>
+        Title: <input type="text" name="title" value="${titleValue}"/>
         <br/>
-        ISBN: <input type="text" name="ISBN"/>
+        ISBN: <input type="text" name="ISBN" value="${isbnValue}"/>
         <input type="submit" value="Post"/>
     </form>
 </body>

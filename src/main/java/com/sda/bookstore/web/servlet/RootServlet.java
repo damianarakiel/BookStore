@@ -18,7 +18,9 @@ public class RootServlet extends HttpServlet {
 //        resp.addCookie(new Cookie("ISBN", "ISBN"));
         Cookie[] cookies = Optional.ofNullable(req.getCookies()).orElse(new Cookie[]{});
         String titleValue = Stream.of(cookies).filter(n -> "title".equals(n.getName())).map(Cookie::getValue).findAny().orElse("default");
+        String isbnValue = Stream.of(cookies).filter(n -> "ISBN".equals(n.getName())).map(Cookie::getValue).findAny().orElse("default");
         req.setAttribute("titleValue", titleValue);
+        req.setAttribute("isbnValue", isbnValue);
         req.getRequestDispatcher("form.jsp").forward(req, resp);
     }
 }
