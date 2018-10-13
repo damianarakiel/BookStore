@@ -1,8 +1,12 @@
+package com.sda.bookstore.service;
+
 import com.sda.bookstore.web.EmbeddedTomcatFactory;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -41,22 +45,19 @@ public class ServletIntegrationTest {
         tomcat.stop();
     }
 
-    @DisplayName("should return status 200 when post on /book")
+    @DisplayName("should return status 302 when post on /book")
     @Test
     public void test0() throws Exception {
+
         // given
         String uri = uri("/book");
 
         // when
-        HttpResponse response = httpClient.execute(new HttpPost(uri));
+        CloseableHttpResponse response = HttpClientBuilder.create().build().execute(new HttpGet(uri));
 
         // then
         assertThat(response.getStatusLine().getStatusCode()).isEqualTo(SC_OK);
-    }
-
-    private String uri(String endpoint) {
-        return String.format("http://localhost:%s/%s", tomcat
-                .getConnector().getPort(), endpoint);
+        assertThat(EntityUtils.toString(response.getEntity()).contains("book null!"));
     }
 
     @DisplayName("should show form data after POST on /book")
@@ -64,7 +65,7 @@ public class ServletIntegrationTest {
     public void test1() throws Exception {
         // given
         String uri = uri("/book");
-        List<BasicNameValuePair> postParameters = Arrays.asList(
+        List<NameValuePair> postParameters = Arrays.asList(
                 new BasicNameValuePair("title", "Thinking in Java"),
                 new BasicNameValuePair("ISBN", "123456789")
         );
@@ -75,7 +76,13 @@ public class ServletIntegrationTest {
         CloseableHttpResponse response = httpClient.execute(post);
 
         // then
-        String htmlResponse = EntityUtils.toString(response.getEntity());
+        HttpResponse getResponse = httpClient.execute(new HttpGet(uri));
+        String htmlResponse = EntityUtils.toString(getResponse.getEntity());
         assertThat(htmlResponse).contains("Thinking in Java", "123456789");
+    }
+
+    private String uri(String endpoint) {
+        return String.format("http://localhost:%s/%s", tomcat
+                .getConnector().getPort(), endpoint);
     }
 }

@@ -18,32 +18,32 @@ public class Main {
         AuthorService authorService = new AuthorService();
 
         Category category = new Category();
-        category.setName("ZDUPLIKWANA2");
+        category.setName("qwer");
         categoryService.save(category);
 
         Author author = new Author();
-        author.setName("STARY2");
-        author.setLastName("AUTOR2");
+        author.setName("tyui");
+        author.setLastName("opas");
 
         authorService.save(author);
 
         BookService bookService = new BookService();
 
         Author author1 = new Author();
-        author1.setName("JESZCZE2");
-        author1.setLastName("STARSZY2");
+        author1.setName("dfgh");
+        author1.setLastName("jklz");
 
         Set<Author> authorSet = new HashSet<>();
         authorSet.add(author);
         authorSet.add(author1);
 
         Category category1 = new Category();
-        category1.setName("TESTOWA2");
+        category1.setName("xcvb");
 
         Book s = new Book();
         s.setCategory(category1);
         s.setAuthorSet(authorSet);
-        s.setTitle("NOWY TYTUŁ");
+        s.setTitle("nmqw");
         bookService.save(s);
 
 //        CategoryService categoryService = new CategoryService();
